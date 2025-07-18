@@ -1,0 +1,36 @@
+<h1>Total Order Price: {{ totalOrderPrice }}</h1>
+
+<div class="filter">
+  <select [(ngModel)]="selectedCategoryId">
+    <option [ngValue]="0">All Categories</option>
+    <option [ngValue]="cat.id" *ngFor="let cat of categories">
+      {{ cat.name }}
+    </option>
+  </select>
+  <button (click)="change()">Reset</button>
+</div>
+
+<section class="products-list">
+  <article
+    *ngFor="let prd of products"
+    class="product-card"
+    [class.d-none]="selectedCategoryId !== 0 && prd.catId !== selectedCategoryId"
+  >
+    <figure>
+      <img [src]="getImagePath(prd)" alt="{{ prd.name }}" />
+      <figcaption>
+        <h2>{{ prd.name }}</h2>
+        <p class="price"> {{   prd.price | currency:'EGP' }}</p>
+        <p class="qty">In stock: {{ prd.quantity }}</p>
+        <input type="number" #countInp />
+        <button
+          [style.backgroundColor]="prd.quantity === 0 ? 'red' : ''"
+          [disabled]="prd.quantity === 0"
+          (click)="buy(prd.id, countInp.value)"
+        >
+          {{ prd.quantity === 0 ? 'Out of Stock' : 'Buy' }}
+        </button>
+      </figcaption>
+    </figure>
+  </article>
+</section>

@@ -1,0 +1,44 @@
+/* Modern Footer Styles */
+.main-footer {
+  background: linear-gradient(90deg, #18191a 60%, #232526 100%);
+  color: #e0e0e0;
+  padding: 36px 0 18px 0;
+  text-align: center;
+  border-top: 1.5px solid #232526;
+  margin-top: 48px;
+}
+.footer-menu {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.footer-link {
+  color: #bdbdbd;
+  text-decoration: none;
+  font-size: 1.08rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer-link:hover {
+  color: #ffc107;
+}
+.footer-social {
+  margin-bottom: 14px;
+}
+.footer-social-icon {
+  color: #bdbdbd;
+  margin: 0 10px;
+  font-size: 1.25rem;
+  transition: color 0.2s, transform 0.2s;
+}
+.footer-social-icon:hover {
+  color: #ffc107;
+  transform: scale(1.18);
+}
+.footer-copy {
+  font-size: 0.98rem;
+  color: #888;
+  margin-top: 8px;
+}

@@ -1,0 +1,178 @@
+/* ===== Reset عام ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f8f8;
+}
+
+/* ===== النافبار الأساسي ===== */
+.navbar {
+  background: radial-gradient(circle, #18191a 0%, #595c5e 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: wrap;
+  width: 80vw;
+  margin: 0 auto;
+  border-radius: 0 0 80px 80px;
+  transition: padding-bottom 0.4s ease;
+}
+
+/* ===== عند فتح المينيو في الموبايل نزود الارتفاع ===== */
+.navbar.active-height {
+  padding-bottom: 40px;
+}
+
+/* ===== اليسار (اللوجو) ===== */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 0 0 0px 50px;
+}
+.brand-name {
+  font-size: 22px;
+  font-weight: bold;
+}
+.brand-name .shop {
+  color: #ffc107;
+}
+
+/* ===== منتصف النافبار (اللينكات) ===== */
+.navbar-center {
+  display: flex;
+  gap: 20px;
+  transition: all 0.4s ease;
+}
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  position: relative;
+  opacity: 1;
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: #ffc107;
+}
+
+/* ===== يمين النافبار (البحث + كارت) ===== */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.search-input {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+}
+.cart-btn {
+  background-color: #ffc107;
+  border: none;
+  border-radius: 0px 0px 50px 0px;
+  padding: 6px 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.cart-icon-img {
+  width: 20px;
+  height: 20px;
+  border-radius: 0 0 0 50px;
+}
+
+/* ===== زرار المينيو للموبايل ===== */
+.menu-toggle {
+  font-size: 26px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+/* ===== موبايل / Responsive Design ===== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 6px;
+    background: radial-gradient(circle, #18191a 0%, #232526 100%);
+    border-radius: 0;
+    width: 100%;
+    
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-center {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 0.6s ease, opacity 0.6s ease;
+    
+  }
+
+  .navbar-center.active {
+    max-height: 300px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .navbar-center a {
+    opacity: 0;
+    animation: fadeInLink 0.4s ease-in-out forwards;
+  }
+
+  .navbar-center.active a:nth-child(1) { animation-delay: 0.2s; }
+  .navbar-center.active a:nth-child(2) { animation-delay: 0.4s; }
+  .navbar-center.active a:nth-child(3) { animation-delay: 0.6s; }
+  .navbar-center.active a:nth-child(4) { animation-delay: 0.8s; }
+
+  .navbar-right {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    align-items: flex-start;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+}
+
+/* ===== Animation: ظهور اللينكات ===== */
+@keyframes fadeInLink {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
